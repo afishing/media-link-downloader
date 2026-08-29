@@ -7,12 +7,66 @@
     "start": "electron .",
     "dev": "electron .",
     "check": "node --check main.cjs && node --check preload.cjs && node --check src/renderer.js && node --check douyin-browser.cjs && node --check url-utils.cjs && node --check scripts/verify.mjs && node scripts/test-url-utils.mjs",
-    "verify": "node scripts/verify.mjs"
+    "verify": "node scripts/verify.mjs",
+    "dist:win": "electron-builder --win --x64"
   },
   "devDependencies": {
-    "electron": "^37.2.6"
+    "electron": "^37.2.6",
+    "electron-builder": "^26.15.3"
   },
   "dependencies": {
     "playwright-core": "^1.62.1"
+  },
+  "build": {
+    "appId": "com.afishing.medialinkdownloader",
+    "productName": "链接下载器",
+    "directories": {
+      "output": "release-dist"
+    },
+    "files": [
+      "main.cjs",
+      "preload.cjs",
+      "douyin-browser.cjs",
+      "url-utils.cjs",
+      "src/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "bin/ffmpeg.exe",
+        "to": "bin/ffmpeg.exe"
+      },
+      {
+        "from": "bin/yt-dlp.exe",
+        "to": "bin/yt-dlp.exe"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "artifactName": "media-link-downloader-${version}-setup-${arch}.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "portable": {
+      "artifactName": "media-link-downloader-${version}-portable-${arch}.${ext}"
+    }
   }
 }
