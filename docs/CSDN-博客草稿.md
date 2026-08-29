@@ -4,7 +4,7 @@
 
 平时从 YouTube、TikTok、Instagram、抖音和 Bilibili 保存自己拥有权利或已经获得授权的公开视频时，不同平台的网页结构、分享链接格式和下载方式并不统一。于是我做了一个 Windows 桌面工具，把“粘贴链接、解析信息、选择质量、加入队列、保存文件”整理成一个简单流程。
 
-项目地址：待补充 GitHub 仓库地址
+项目地址：[https://github.com/afishing/media-link-downloader](https://github.com/afishing/media-link-downloader)
 
 ## 二、整体技术方案
 
