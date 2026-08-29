@@ -1,0 +1,11 @@
+node_modules/
+dist/
+out/
+*.exe*
+*.log
+.verification-output/
+.android-test/
+.http-test/
+.http-test-ipv4/
+.http-test-native/
+.douyin-page-test.html
